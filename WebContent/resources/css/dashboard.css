@@ -1,0 +1,19 @@
+div.perfil-box {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div.perfil {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+}
+div.perfil-img {
+    width: 50%;
+}
+div.perfil-form{
+    width: 50;
+}

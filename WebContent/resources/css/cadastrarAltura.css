@@ -1,0 +1,9 @@
+#cadastrarAltura{
+    text-align: center;
+    align-items: center;
+    display: block;
+    position: relative;
+    margin-top: 15%;
+    margin-left: 25%;
+    max-width: 50%;
+}

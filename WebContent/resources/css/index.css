@@ -1,0 +1,60 @@
+.user_card {
+    height: 500px;
+    width: 500px;
+    margin-top: 10%;
+    margin-bottom: auto;
+    background: #56cfff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 30px;
+
+}
+.logo_container{
+    display: flex;
+    align-items:center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: -25px;
+    margin-bottom: 100px;
+}
+.logo_container img {
+    height: 100px;
+    width: 105px;
+}
+.logo_container span{
+    font-size: 250%;
+    font-weight: bold;
+}
+
+.form_container {
+    margin-top: -90px;
+}
+
+.login_btn {
+    width: 100%;
+    background: #086581 !important;
+    color: white !important;
+}
+
+.login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+.login_btn:hover {
+    transform: scale(1.05);
+    transition: .2s;
+}
+
+.input_user,
+.input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}

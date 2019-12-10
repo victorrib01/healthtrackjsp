@@ -1,0 +1,46 @@
+.forgotpass-parent {
+    height: 100%;
+    padding: 0 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.forgotpass {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    background-color: #56cfff;
+    border-radius: 1rem;
+    -webkit-box-shadow: -20px -5px 155px -15px rgba(0,0,0,0.43);
+    -moz-box-shadow: -20px -5px 155px -15px rgba(0,0,0,0.43);
+    box-shadow: -20px -5px 155px -15px rgba(0,0,0,0.43);
+    -webkit-box-shadow: inset 10px 10px 97px 41px rgba(0,0,0,0.01);
+    -moz-box-shadow: inset 10px 10px 97px 41px rgba(0,0,0,0.01);
+    box-shadow: inset 10px 10px 97px 41px rgba(0,0,0,0.01);
+}
+.forgotpass-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.forgotpass-title img {
+    height: 25%;
+    width: 25%;
+}
+.forgotpass button{
+   width: 100%
+}
+.forgotpass button:hover{
+    transform: scale(1.01);
+    transition: .2s;
+}
+
+.btn_submit{
+    margin-bottom: 2px;
+}
+.btn_back{
+    margin-top: 2px;
+}

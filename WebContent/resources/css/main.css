@@ -1,0 +1,91 @@
+#main{
+    display: block;
+    height: 100%;
+    background-color: #c6f0ff;
+    width: calc(100% - 300px);
+}
+
+main .main-content{
+    padding: 30px;
+    width: 100%;
+    height: calc(100% - 70px);
+    overflow-y: auto;
+}
+.main-content::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #c6f0ff;
+	border-radius: 5px;
+}
+
+.main-content::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: #c6f0ff;
+}
+
+.main-content::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, rgb(122,153,217)),
+									   color-stop(0.72, rgb(73,125,189)),
+									   color-stop(0.86, rgb(28,58,148)));
+}
+
+.main-content .panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #2494b6;
+    margin: 10px 0;
+}
+.panel-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-top: 13%;
+}
+.panel-50{
+    width: 48%;
+    height: 50%;
+    background: linear-gradient(135deg, #74daff,#2494b6);
+    font-size: 30px;
+    font-style: oblique;
+    -webkit-box-shadow: 10px 10px 25px 1px rgba(0,0,0,0.61);
+    -moz-box-shadow: 10px 10px 25px 1px rgba(0,0,0,0.61);
+    box-shadow: 10px 10px 25px 1px rgba(0,0,0,0.61);
+}
+.panel-row button{
+    height: 125px;
+}
+.panel-row button:hover{
+    transform: scale(1.03);
+    transition: 0.2s;
+    background: linear-gradient(135deg, #56a0bb,#1e7c99);
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    margin-top: 2%;
+}
+.main-content-title h2{
+ text-transform: uppercase;
+ text-shadow: 3px 6px 20px rgba(0,0,0,0.62);
+ font-size: 50px;
+ margin-bottom: -10%
+}
+@media screen and (min-width: 2242px) {
+    .panel-row{
+        margin-top: 12%;
+    }
+}
