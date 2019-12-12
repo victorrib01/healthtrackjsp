@@ -33,12 +33,12 @@
 								<th>Data de Alteração</th>
 								<th></th>
 							</tr>
-							<c:forEach items="${peso }" var="p">
+							<c:forEach items="${pesos}" var="p">
 								<tr>
 									<td>${p.peso}</td>
 									<td>${p.quantidade}</td>
 									<td>${p.valor}</td>
-									<td><fmt:formatDate value="${p.dataFabricacao.time }"
+									<td><fmt:formatDate value="${p.dataFabricacao.time }"s
 											pattern="dd/MM/yyyy" /></td>
 									<td>${p.categoria.nome}</td>
 									<td><c:url value="produto" var="link">
