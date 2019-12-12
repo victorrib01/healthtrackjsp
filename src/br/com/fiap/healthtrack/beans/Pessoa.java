@@ -6,8 +6,18 @@ public abstract class Pessoa {
 	
 	private String nome;
 	private Date dataNasc;
-	private char sexo;
+	private String sexo;
+	
+	public Pessoa() {
+	}
 
+	public Pessoa(String nome, Date dataNasc, String sexo) {
+		super();
+		this.nome = nome;
+		this.dataNasc = dataNasc;
+		this.sexo = sexo;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -24,10 +34,10 @@ public abstract class Pessoa {
 	public void setDataNasc(Date dataNasc) {
 		this.dataNasc = dataNasc;
 	}
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 }

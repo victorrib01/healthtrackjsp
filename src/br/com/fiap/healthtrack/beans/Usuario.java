@@ -11,7 +11,7 @@ public class Usuario extends Pessoa implements Autenticavel {
 		private Date dtUltimoAcess;
 		private String login;
 		private String senha;
-
+		
 		public Usuario(String email, String senha) {
 			super();
 			this.email = email;
@@ -21,11 +21,13 @@ public class Usuario extends Pessoa implements Autenticavel {
 		public Usuario() {
 			super();
 		}
-
-		public Usuario(String nome, Date dataNasc, String sexo, String email2, String senha2) {
-			
-		}
 		
+		public Usuario(String nome, Date dataNasc, String sexo, String email, String senha) {
+			super(nome, dataNasc, sexo);
+			this.email = email;
+			setSenha(senha);
+		}
+
 		public long getCd_usuario() {
 			return cd_usuario;
 		}

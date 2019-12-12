@@ -24,7 +24,7 @@ public class OraclePesoDAO implements PesoDAO {
 	
 	private static final String SELECT_SQL = "SELECT * FROM T_HTK_PESO WHERE CD_USUARIO=?";
 
-	private static final String SELECTALL_SQL = "SELECT * FROM T_HTK_PESO";
+	//private static final String SELECTALL_SQL = "SELECT * FROM T_HTK_PESO";
 
 	@Override
 	//Cadastra um Peso do Usuario
@@ -82,7 +82,7 @@ public class OraclePesoDAO implements PesoDAO {
 	// GET ALL
 	public List<Peso> getAll(){
 		List <Peso> pesos = new ArrayList<Peso>();
-		try (Connection conexao = DbManager.obterConexao();PreparedStatement pstmt = conexao.prepareStatement(SELECTALL_SQL); ResultSet rs = pstmt.executeQuery()) {
+		try (Connection conexao = DbManager.obterConexao();PreparedStatement pstmt = conexao.prepareStatement(SELECT_SQL); ResultSet rs = pstmt.executeQuery()) {
 			while(rs.next()) {
 				int cdPeso = rs.getInt("CD_PESO");
 				Double nrPeso = rs.getDouble("NR_PESO");

@@ -1,0 +1,45 @@
+#cadastrarAltura{
+    text-align: center;
+    align-items: center;
+    display: block;
+    position: relative;
+    margin-top: 15%;
+    margin-left: 25%;
+    max-width: 50%;
+}
+#cadastrarAlimentacao{
+    text-align: center;
+    align-items: center;
+    display: block;
+    position: relative;
+    margin-top: 15%;
+    margin-left: 25%;
+    max-width: 50%;
+}
+#cadastrarAtividade{
+    text-align: center;
+    align-items: center;
+    display: block;
+    position: relative;
+    margin-top: 15%;
+    margin-left: 25%;
+    max-width: 50%;
+}
+#cadastrarPeso{
+    text-align: center;
+    align-items: center;
+    display: block;
+    position: relative;
+    margin-top: 15%;
+    margin-left: 25%;
+    max-width: 50%;
+}
+#cadastrarPressao{
+    text-align: center;
+    align-items: center;
+    display: block;
+    position: relative;
+    margin-top: 13%;
+    margin-left: 25%;
+    max-width: 50%;
+}

@@ -1,5 +1,7 @@
 package br.com.fiap.healthtrack.teste;
 
+import java.util.List;
+
 //import java.util.Calendar;
 //import java.util.List;
 
@@ -34,7 +36,7 @@ public class PesoDAOTeste {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}				
-//		//Buscar um produto pelo código e atualizar
+		//Buscar um produto pelo código e atualizar
 //				peso = dao.getById(654);
 //				
 //				peso.setPeso(64);
@@ -45,13 +47,13 @@ public class PesoDAOTeste {
 //					e.printStackTrace();
 //				}
 //				
-//				//Listar os Produtos
-//				List<Peso> lista = dao.getAll();
-//				for(Peso item : lista) {
-//					System.out.println(item.getPeso() + " " + item.getIdPeso() + " " + item.getDataPeso() + " " + item.getUsuario());
-//				}
-//				
-//				//Remover um produto
+				//Listar os Produtos
+				List<Peso> lista = dao.getAll();
+				for(Peso item : lista) {
+					System.out.println(item.getPeso() + " " + item.getIdPeso() + " " + item.getDataPeso() + " " + item.getUsuario());
+				}
+				
+				//Remover um produto
 //				try {
 //					dao.excluir(654);
 //					System.out.println("Produto removido.");

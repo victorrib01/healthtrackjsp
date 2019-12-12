@@ -8,6 +8,7 @@
 <%@ include file="resources/jsp/head.jsp"%>
 </head>
 <body>
+<div class></div>
 	<div class="register-parent">
 		<div class="register">
 			<div class="register-title">
@@ -26,9 +27,9 @@
 				<div class="form-group">
 					<label for="genre">Gênero</label> 
 					<select class="form-control" id="sexo" name="sexo">
+						<option value="N">Não Informar</option>
 						<option value="F">Feminino</option>
 						<option value="M">Masculino</option>
-						<option value="N">Não Informar</option>
 					</select>
 				</div>
 				<div class="form-group">

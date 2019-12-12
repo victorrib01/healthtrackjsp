@@ -15,6 +15,7 @@ public class OracleUsuarioDAO implements UsuarioDAO{
 
 	private static final String SELECT_SQL = "SELECT * FROM T_HTK_USUARIO WHERE DS_EMAIL = ? AND SENHA = ?";
 	private static final String INSERT_SQL = "INSERT INTO T_HTK_USUARIO (cd_usuario,nm_nome,dt_nascimento,sexo,ds_email,senha) VALUES (SEQ_USUARIO.NEXTVAL, ?, ?, ?, ?, ?)";
+	private static final String SELECTCD_SQL = "SELECT * FROM T_HTK_USUARIO WHERE DS_EMAIL = ? AND SENHA = ?";
 	private Connection conexao;
 	
 	@Override
@@ -51,8 +52,8 @@ public class OracleUsuarioDAO implements UsuarioDAO{
 				PreparedStatement pstmt = conexao.prepareStatement(INSERT_SQL))
 		{
 			pstmt.setString(1, usuario.getNome());
-			pstmt.setDate(2, (Date) usuario.getDataNasc());
-			pstmt.setLong(3, usuario.getSexo());
+			pstmt.setDate(2, new Date(usuario.getDataNasc().getTime()));
+			pstmt.setString(3, usuario.getSexo());
 			pstmt.setString(4, usuario.getEmail());
 			pstmt.setString(5, usuario.getSenha());
 			
@@ -62,5 +63,30 @@ public class OracleUsuarioDAO implements UsuarioDAO{
 			e.printStackTrace();
 		}
 		
+	}
+	public long getCdUser(Usuario usuario) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conexao = ConnectionManager.getInstance().getConnection();
+			pstmt = conexao.prepareStatement(SELECT_SQL);
+			pstmt.setLong(1, usuario.getCd_usuario());
+			rs = pstmt.executeQuery();
+			if (rs.next()){
+				return 0;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				rs.close();
+				conexao.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return usuario.getCd_usuario();
 	}
 }

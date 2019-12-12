@@ -1,7 +1,7 @@
 package br.com.fiap.healthtrack.controller;
 
 import java.io.IOException;
-
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +13,7 @@ import br.com.fiap.healthtrack.beans.Peso;
 import br.com.fiap.healthtrack.dao.PesoDAO;
 import br.com.fiap.healthtrack.exception.DBException;
 import br.com.fiap.healthtrack.factory.DAOFactory;
+
 
 /**
  * Servlet implementation class PesoServlet
@@ -33,8 +34,9 @@ public class PesoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		List<Peso> lista = dao.getAll();
+		request.setAttribute("pesos", lista);
+		request.getRequestDispatcher("vizualizarPeso.jsp").forward(request, response);
 	}
 
 	/**
