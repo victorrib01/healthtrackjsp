@@ -9,20 +9,21 @@ import java.util.Calendar;
 import java.util.List;
 
 import br.com.fiap.healthtrack.beans.Peso;
-import br.com.fiap.healthtrack.beans.Usuario;
+//import br.com.fiap.healthtrack.beans.Usuario;
 import br.com.fiap.healthtrack.dao.PesoDAO;
+import br.com.fiap.healthtrack.singleton.ConnectionManager;
 import br.com.fiap.healthtrack.singleton.DbManager;
 
 
 public class OraclePesoDAO implements PesoDAO {
-	
+
 	private static final String INSERT_SQL = "INSERT INTO T_HTK_PESO " + "(CD_PESO,DT_ALTERADO_EM, CD_USUARIO,NR_PESO) "+ "VALUES (SEQ_PESO.NEXTVAL, ?, ?, ?)";
-	
+
 	private static final String DELETE_SQL = "DELETE FROM T_HTK_PESO WHERE CD_PESO=?";
-	
+
 	private static final String UPDATE_SQL = "UPDATE T_HTK_PESO" + " SET NR_PESO= ?, DT_ALTERADO_EM=?" + " WHERE CD_PESO= ?";
-	
-	private static final String SELECT_SQL = "SELECT * FROM T_HTK_PESO WHERE CD_USUARIO=?";
+
+	private static final String SELECT_SQL = "SELECT * FROM T_HTK_PESO";
 
 	//private static final String SELECTALL_SQL = "SELECT * FROM T_HTK_PESO";
 
@@ -31,9 +32,9 @@ public class OraclePesoDAO implements PesoDAO {
 	public void cadastrar(Peso peso) {
 		// INSERT ORACLE
 		try (Connection conexao = DbManager.obterConexao();PreparedStatement pstmt = conexao.prepareStatement(INSERT_SQL)) {
-			peso.setUsuario(new Usuario());
-			peso.getUsuario().setNome("Teste");
-			peso.getUsuario().setCd_usuario(1);
+//			peso.setUsuario(new Usuario());
+//			peso.getUsuario().setNome("Teste");
+//			peso.getUsuario().setCd_usuario(1);
 			java.sql.Date data = new java.sql.Date(new java.util.Date().getTime()); //peso.getDataPeso().getTimeInMillis()
 			pstmt.setDate(1, data);
 			pstmt.setLong(2, peso.getUsuario().getCd_usuario());
@@ -82,7 +83,13 @@ public class OraclePesoDAO implements PesoDAO {
 	// GET ALL
 	public List<Peso> getAll(){
 		List <Peso> pesos = new ArrayList<Peso>();
-		try (Connection conexao = DbManager.obterConexao();PreparedStatement pstmt = conexao.prepareStatement(SELECT_SQL); ResultSet rs = pstmt.executeQuery()) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Connection conexao = DbManager.obterConexao();
+		try {
+			conexao = ConnectionManager.getInstance().getConnection();
+			pstmt = conexao.prepareStatement(SELECT_SQL);
+			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				int cdPeso = rs.getInt("CD_PESO");
 				Double nrPeso = rs.getDouble("NR_PESO");
@@ -94,13 +101,20 @@ public class OraclePesoDAO implements PesoDAO {
 				//Adiciona o peso a lista
 				pesos.add(peso);
 			}
-			} catch(SQLException e) {
-				System.err.println("Erro ao buscar todos os registros");
-				e.printStackTrace();
+		} catch(SQLException e) {
+			System.err.println("Erro ao buscar todos os registros");
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				rs.close();
+				conexao.close();
+			}catch(SQLException db) {
+				db.printStackTrace();
 			}
+		}
 		return pesos;
 	}
-
 	@Override
 	public Peso getById(int idPeso){
 		Peso peso = null;

@@ -16,7 +16,8 @@
 						<div class="perfil-img">
 							<img src="./resources/img/profileIcon.png" alt="profileIcon">
 						</div>
-						<div class="perfil-form">
+						<div></div>
+						<!-- <div class="perfil-form">
 							<form>
 								<div class="custom-file">
 									<input type="file" class="custom-file-input" id="customFile">
@@ -49,7 +50,7 @@
 								<button type="submit" class="btn btn-primary">Salvar</button>
 							</form>
 						</div>
-					</div>
+ -->					</div>
 				</div>
 			</div>
 		</main>

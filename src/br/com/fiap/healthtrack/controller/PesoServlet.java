@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.fiap.healthtrack.beans.Peso;
 import br.com.fiap.healthtrack.dao.PesoDAO;
@@ -19,7 +20,7 @@ import br.com.fiap.healthtrack.factory.DAOFactory;
  * Servlet implementation class PesoServlet
  */
 @WebServlet("/peso")
-public class PesoServlet extends HttpServlet {
+public class PesoServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	private PesoDAO dao;
@@ -34,10 +35,10 @@ public class PesoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Peso> lista = dao.getAll();
-		request.setAttribute("pesos", lista);
+		List<Peso> pesos = dao.getAll();
+		request.setAttribute("pesos", pesos);
 		request.getRequestDispatcher("vizualizarPeso.jsp").forward(request, response);
-	}
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -56,9 +57,13 @@ public class PesoServlet extends HttpServlet {
 	private void cadastrar(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			HttpServletRequest req = (HttpServletRequest) request;
+			HttpSession session = req.getSession();
+			
+			Object user = session.getAttribute("user");
 			Double p = Double.parseDouble(request.getParameter("peso"));
-
-			Peso peso = new Peso(p,0);
+					
+			Peso peso = new Peso(p,user);
 			dao.cadastrar(peso);
 
 			request.setAttribute("msg", "Produto cadastrado!");

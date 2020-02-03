@@ -19,9 +19,9 @@
 					<button class="panel panel-50" onclick="window.location.href='cadastrarPeso.jsp'">
 						<i class="far fa-edit"></i>Cadastrar peso
 					</button>
-					<button class="panel panel-50" id="vizualizarPeso" onclick="window.location.href='vizualizarPeso.jsp'">
+					<a class="panel panel-50 nav-link" id="vizualizarPeso" href="peso">
 						<i class="far fa-list-alt"></i>Vizualizar peso
-					</button>
+					</a>
 				</div>
 			</div>
 		</main>

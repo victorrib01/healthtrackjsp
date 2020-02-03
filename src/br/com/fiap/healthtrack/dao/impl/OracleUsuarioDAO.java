@@ -15,7 +15,6 @@ public class OracleUsuarioDAO implements UsuarioDAO{
 
 	private static final String SELECT_SQL = "SELECT * FROM T_HTK_USUARIO WHERE DS_EMAIL = ? AND SENHA = ?";
 	private static final String INSERT_SQL = "INSERT INTO T_HTK_USUARIO (cd_usuario,nm_nome,dt_nascimento,sexo,ds_email,senha) VALUES (SEQ_USUARIO.NEXTVAL, ?, ?, ?, ?, ?)";
-	private static final String SELECTCD_SQL = "SELECT * FROM T_HTK_USUARIO WHERE DS_EMAIL = ? AND SENHA = ?";
 	private Connection conexao;
 	
 	@Override

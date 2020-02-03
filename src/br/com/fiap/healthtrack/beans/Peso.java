@@ -25,7 +25,11 @@ public class Peso implements Serializable{
 	}
 	*/
 	
-	
+	public Peso(double peso, Usuario user) {
+		super();
+		this.peso = peso;
+		this.usuario = user;
+	}
 	
 	public Peso(double peso, int idPeso) {
 		super();
@@ -50,6 +54,10 @@ public class Peso implements Serializable{
 
 	public Peso() {}
 	
+	public Peso(Double p, Object user) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
